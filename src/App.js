@@ -202,8 +202,17 @@ function App() {
             <div className="flex flex-col items-center text-center">
               <h3 className="text-2xl font-bold mb-4 text-indigo-600">Education</h3>
               <ul className="list-disc pl-5 text-gray-700 text-left mx-auto">
-                <li>B.Sc. in Civil Engineering</li>
-                <li>Self-taught in Web Development (React, JavaScript, Python, etc.)</li>
+                <li>
+                  <strong>Bachelor of Science in Civil Engineering</strong><br />
+                  Cotabato State University<br />
+                  2018 – 2023<br />
+                  Although I studied Civil Engineering, I discovered along the way that my true passion lies in art and creativity. My experience in engineering helped me develop discipline and problem-solving skills.
+                </li>
+                <li className="mt-4">
+                  <strong>Self-Taught in Web Development</strong><br />
+                  2024 – 2025<br />
+                  Currently learning web development through online resources and personal projects. I'm focused on building modern, creative websites while combining my interests in design, art, and technology.
+                </li>
               </ul>
             </div>
           )}
@@ -211,8 +220,18 @@ function App() {
             <div className="flex flex-col items-center text-center">
               <h3 className="text-2xl font-bold mb-4 text-indigo-600">Experience</h3>
               <ul className="list-disc pl-5 text-gray-700 text-left mx-auto">
-                <li>Freelance Web Developer (React, Tailwind CSS)</li>
-                <li>Internship: Junior Engineer (Civil Engineering)</li>
+                <li className="mt-4">
+                  <strong>Technician (Self-Taught / Freelance)</strong><br />
+                  2020 – 2025
+                  <ul className="list-disc pl-5 mt-2">
+                    <li>Independently learned and applied troubleshooting skills to repair laptops, desktops, and mobile devices</li>
+                    <li>Reinstalled and configured various operating systems including Windows, Android, and Linux</li>
+                    <li>Performed system cleanups, driver updates, and performance optimizations</li>
+                    <li>Helped friends, family, and local clients fix hardware and software issues</li>
+                    <li>Gained hands-on experience in diagnosing technical problems and delivering practical solutions</li>
+                    <li>Developed strong problem-solving, research, and customer support skills through real-world cases</li>
+                  </ul>
+                </li>
               </ul>
             </div>
           )}
@@ -224,10 +243,34 @@ function App() {
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <h2 className="text-4xl font-bold mb-12 text-black text-center uppercase">Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+            {/* easCE Reviewer App Project Card */}
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full hover:shadow-2xl transition-all duration-300 hover:scale-105">
+              <h3 className="text-xl font-semibold mb-3 text-black">easCE Reviewer App</h3>
+              <p className="text-gray-700 mb-4">A reviewer app for Civil Engineering students and graduates who want to prepare for the board exam. Built with the MERN stack, Tailwind CSS, and Next.js for a modern, interactive experience.</p>
+              {/* What I Learned Section */}
+              <div className="mb-4">
+                <h4 className="text-sm font-semibold text-indigo-600 mb-2 uppercase tracking-wide">What I Learned</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Building full-stack apps with MERN (MongoDB, Express, React, Node.js)</li>
+                  <li>• Using Next.js for SSR and optimized routing</li>
+                  <li>• Designing user-friendly review and quiz interfaces</li>
+                  <li>• Integrating Tailwind CSS for rapid UI development</li>
+                </ul>
+              </div>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">MERN</span>
+                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Next.js</span>
+                <span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">Tailwind CSS</span>
+              </div>
+              <div className="flex gap-4 justify-center mt-6">
+                <a href="#" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">GitHub</a>
+                <a href="#" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">Live Demo</a>
+              </div>
+            </div>
+            {/* Portfolio Website Project Card */}
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full hover:shadow-2xl transition-all duration-300 hover:scale-105">
               <h3 className="text-xl font-semibold mb-3 text-black">Portfolio Website</h3>
               <p className="text-gray-700 mb-4">A modern, responsive portfolio built with React and Tailwind CSS, featuring interactive tabs and smooth animations.</p>
-
               {/* What I Learned Section */}
               <div className="mb-4">
                 <h4 className="text-sm font-semibold text-indigo-600 mb-2 uppercase tracking-wide">What I Learned</h4>
@@ -238,23 +281,20 @@ function App() {
                   <li>• CSS animations and transitions</li>
                 </ul>
               </div>
-
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">React</span>
                 <span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">Tailwind CSS</span>
                 <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">JavaScript</span>
               </div>
-
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-center mt-6">
                 <a href="https://github.com/yourusername/portfolio" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">GitHub</a>
                 <a href="#" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">Live Demo</a>
               </div>
             </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+            {/* E-Commerce Platform Project Card */}
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full hover:shadow-2xl transition-all duration-300 hover:scale-105">
               <h3 className="text-xl font-semibold mb-3 text-black">E-Commerce Platform</h3>
-              <p className="text-gray-700 mb-4">A full-stack e-commerce application with user authentication, product management, and payment integration.</p>
-
+              <p className="text-gray-700 mb-4">A full-stack e-commerce application for my sister's furniture business, with user authentication, product management, and payment integration. This project may be updated in the future as her business grows and her needs evolve.</p>
               {/* What I Learned Section */}
               <div className="mb-4">
                 <h4 className="text-sm font-semibold text-indigo-600 mb-2 uppercase tracking-wide">What I Learned</h4>
@@ -265,42 +305,15 @@ function App() {
                   <li>• Payment gateway integration (Stripe)</li>
                 </ul>
               </div>
-
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">React</span>
                 <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">Node.js</span>
                 <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">MongoDB</span>
+                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">TypeScript</span>
+                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Next.js</span>
               </div>
-
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-center mt-6">
                 <a href="https://github.com/yourusername/ecommerce" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">GitHub</a>
-                <a href="#" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">Live Demo</a>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 hover:scale-105">
-              <h3 className="text-xl font-semibold mb-3 text-black">Task Management App</h3>
-              <p className="text-gray-700 mb-4">A collaborative task management application with real-time updates, drag-and-drop functionality, and team features.</p>
-
-              {/* What I Learned Section */}
-              <div className="mb-4">
-                <h4 className="text-sm font-semibold text-indigo-600 mb-2 uppercase tracking-wide">What I Learned</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Real-time communication with WebSockets</li>
-                  <li>• Drag-and-drop functionality implementation</li>
-                  <li>• Collaborative features and data synchronization</li>
-                  <li>• Advanced state management patterns</li>
-                </ul>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">React</span>
-                <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">Socket.io</span>
-                <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium">Firebase</span>
-              </div>
-
-              <div className="flex gap-4">
-                <a href="https://github.com/yourusername/task-app" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">GitHub</a>
                 <a href="#" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">Live Demo</a>
               </div>
             </div>
@@ -379,7 +392,7 @@ function App() {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-black">Email</h4>
-                    <p className="text-gray-600">your.email@example.com</p>
+                    <p className="text-gray-600">mohammadmors404@gmail.com</p>
                     <a href="mailto:your.email@example.com" className="text-indigo-600 hover:text-indigo-700 font-medium">Send Email</a>
                   </div>
                 </div>
@@ -393,7 +406,7 @@ function App() {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-black">Phone</h4>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">09168485747(TM/Globe)</p>
                     <a href="tel:+15551234567" className="text-green-600 hover:text-green-700 font-medium">Call Now</a>
                   </div>
                 </div>
@@ -407,7 +420,7 @@ function App() {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-black">Location</h4>
-                    <p className="text-gray-600">Your City, Country</p>
+                    <p className="text-gray-600">Cotabato City, Philippines</p>
                     <p className="text-gray-600">Available for remote work</p>
                   </div>
                 </div>
@@ -417,13 +430,13 @@ function App() {
               <div className="bg-white rounded-xl shadow-lg p-6">
                 <h4 className="text-lg font-semibold text-black mb-4">Connect With Me</h4>
                 <div className="flex gap-4">
-                  <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                  <a href="https://www.linkedin.com/in/morsidm-dev/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors duration-300">
                     <FaLinkedin className="text-xl" />
                   </a>
-                  <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="bg-gray-800 text-white p-3 rounded-lg hover:bg-gray-900 transition-colors duration-300">
+                  <a href="https://github.com/muhh123/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 text-white p-3 rounded-lg hover:bg-gray-900 transition-colors duration-300">
                     <FaGithub className="text-xl" />
                   </a>
-                  <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                  <a href="https://www.facebook.com/appaNatics/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors duration-300">
                     <FaFacebook className="text-xl" />
                   </a>
                 </div>
