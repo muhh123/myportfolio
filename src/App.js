@@ -9,32 +9,37 @@ function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
+    let timeoutId = null;
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'skills', 'contact'];
-      let found = 'home';
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 80 && rect.bottom > 80) {
-            found = id;
-            break;
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        const sections = ['home', 'about', 'projects', 'skills', 'contact'];
+        let found = 'home';
+        for (const id of sections) {
+          const el = document.getElementById(id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 80 && rect.bottom > 80) {
+              found = id;
+              break;
+            }
           }
         }
-      }
-      setActiveSection(found);
-
-      // Show scroll to top button when scrolled down more than 300px
-      setShowScrollTop(window.scrollY > 300);
+        setActiveSection(prev => (prev !== found ? found : prev));
+        setShowScrollTop(prev => (prev !== (window.scrollY > 300) ? window.scrollY > 300 : prev));
+      }, 50); // 50ms debounce
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
-      <nav className="sticky top-0 z-10 bg-white shadow flex items-center justify-between px-6 py-4">
+      <nav className="fixed top-0 left-0 w-full z-20 bg-white shadow flex items-center justify-between px-6 py-4">
         <a href="#home" className="font-extrabold text-3xl tracking-tight group relative transition-opacity duration-200 hover:opacity-80 md:ml-8">
           <span className="text-indigo-600">CE.</span>
           <span className="text-black">dev</span>
@@ -103,22 +108,51 @@ function App() {
                 Download CV
               </a>
               <div className="flex gap-6 text-3xl">
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200">
+                <a href="https://www.linkedin.com/in/morsidm-dev/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200">
                   <FaLinkedin />
                 </a>
-                <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200">
+                <a href="https://www.facebook.com/appaNatics/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200">
                   <FaFacebook />
                 </a>
-                <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200">
+                <a href="https://github.com/muhh123" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200">
                   <FaGithub />
                 </a>
               </div>
             </div>
           </div>
-          <div className="flex-1 flex justify-center items-center md:ml-24 md:-ml-20 relative">
+          <div className="flex-1 flex justify-center items-center md:ml-40 md:-ml-32 relative">
             {/* Soft radial glow */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 md:w-[28rem] md:h-[28rem] bg-indigo-200 opacity-30 rounded-full blur-3xl z-0"></div>
-            <img src="/darkmagic.png" alt="Avatar" className="w-56 h-56 md:w-72 md:h-72 rounded-full shadow-xl object-cover mb-6 border-4 border-white relative z-10" />
+            <div className="relative w-72 h-72 md:w-[28rem] md:h-[28rem] mb-6">
+              <img
+                src="/pic3.png"
+                alt="Avatar"
+                className="w-full h-full object-contain relative z-10"
+              />
+              {/* Radial gradient for all edges */}
+              <div
+                className="absolute inset-0 pointer-events-none z-20"
+                style={{
+                  background: "radial-gradient(circle, transparent 35%, #fff 70%, #eff6ff 95%, #eff6ff 100%)",
+                  filter: "blur(8px)"
+                }}
+              />
+              {/* Linear gradient for the very bottom edge, exactly at the edge */}
+              <div
+                className="absolute left-0 right-0 bottom-0 h-px pointer-events-none z-30"
+                style={{
+                  background: "linear-gradient(to bottom, #eff6ff, #eff6ff)",
+                  filter: "blur(8px)"
+                }}
+              />
+              {/* Thicker, stronger white overlay at the very bottom edge */}
+              <div
+                className="absolute left-0 right-0 bottom-0 h-3 pointer-events-none z-30"
+                style={{
+                  background: "#fff",
+                  filter: "blur(18px)"
+                }}
+              />
+            </div>
           </div>
         </div>
         <a href="#about" className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce text-blue-600 hover:text-blue-800 transition-colors duration-300" aria-label="Scroll down">
@@ -156,8 +190,12 @@ function App() {
           {aboutTab === 'about' && (
             <div className="flex flex-col items-center text-center">
               <h3 className="text-2xl font-bold mb-4 text-indigo-600">About Me</h3>
-              <p className="text-gray-700 mb-2">I am a passionate developer making a career shift from Civil Engineering. I love building modern web applications and learning new technologies.</p>
-              <p className="text-gray-700">In my free time, I enjoy reading, exploring new tools, and contributing to open source.</p>
+              <p className="text-gray-700 mb-2">
+                Hi, I'm Morsid. I'm a passionate creative with a love for drawing, gaming, and exploring the endless possibilities of technology. I’ve always been curious and driven, whether it’s through art, diving into new games, or getting lost in a good book.<br /><br />
+                I originally studied Civil Engineering because it was expected of me, but I’ve come to realize that my real passion is in creativity and tech. Now, I’m focused on what truly excites me: art, design, and building things in the digital world.<br /><br />
+                You can check out some of my artwork here: <a href="#" className="text-indigo-600 underline">[Insert your art link]</a><br /><br />
+                I'm just getting started, and there’s so much more I want to create.
+              </p>
             </div>
           )}
           {aboutTab === 'education' && (
@@ -411,7 +449,7 @@ function App() {
                         id="name"
                         name="name"
                         className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-300"
-                        placeholder="Your Name"
+                        placeholder="Full Name"
                         required
                       />
                       <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
