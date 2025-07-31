@@ -1,12 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { FaLinkedin, FaFacebook, FaGithub, FaUser, FaGraduationCap, FaBriefcase, FaCode, FaEnvelope, FaPhone, FaMapMarkerAlt, FaArrowUp } from 'react-icons/fa';
 import { SiJavascript, SiReact, SiTypescript, SiHtml5, SiCss3, SiTailwindcss, SiPython, SiDjango, SiFlask, SiBootstrap, SiNodedotjs, SiFigma, SiGit, SiGithub, SiExpress, SiMongodb, SiMysql, SiCplusplus } from 'react-icons/si';
+import emailjs from '@emailjs/browser';
 
 function App() {
+  // ...existing state and config
+
+  const handleSendEmail = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    const form = e.target;
+
+    emailjs.sendForm(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      form,
+      EMAILJS_PUBLIC_KEY
+    )
+      .then(
+        (result) => {
+          setSubmitStatus('Your message was sent successfully!');
+          form.reset();
+        },
+        (error) => {
+          console.error('EmailJS error:', error);
+          setSubmitStatus('There was an error sending your message. Please try again later.');
+        }
+      )
+      .finally(() => setIsSubmitting(false));
+  };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [aboutTab, setAboutTab] = useState('about');
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
+
+  // EmailJS Configuration - Loaded from environment variables
+  const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+  const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
   useEffect(() => {
     let timeoutId = null;
@@ -449,7 +484,7 @@ function App() {
                 <FaEnvelope className="text-indigo-600" />
                 Send Message
               </h3>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSendEmail}>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="relative">
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
@@ -527,7 +562,10 @@ function App() {
                   <FaEnvelope className="text-lg" />
                   Send Message
                 </button>
-              </form>
+              {submitStatus && (
+  <div className={`mt-4 text-center font-semibold ${submitStatus.includes('successfully') ? 'text-green-600' : 'text-red-600'}`}>{submitStatus}</div>
+)}
+</form>
             </div>
           </div>
         </div>
