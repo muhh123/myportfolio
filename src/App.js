@@ -428,7 +428,9 @@ function App() {
                   <div>
                     <h4 className="text-lg font-semibold text-black">Email</h4>
                     <p className="text-gray-600">mohammadmors404@gmail.com</p>
-                    <a href="mailto:your.email@example.com" className="text-indigo-600 hover:text-indigo-700 font-medium">Send Email</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mohammadmors404@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 font-medium">Send Email</a>
                   </div>
                 </div>
               </div>
