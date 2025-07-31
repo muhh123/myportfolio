@@ -444,7 +444,7 @@ function App() {
                   <div>
                     <h4 className="text-lg font-semibold text-black">Phone</h4>
                     <p className="text-gray-600">09168485747(TM/Globe)</p>
-                    <a href="tel:+15551234567" className="text-green-600 hover:text-green-700 font-medium">Call Now</a>
+                    <a href="tel:+09168485747" className="text-green-600 hover:text-green-700 font-medium">Call Now</a>
                   </div>
                 </div>
               </div>
