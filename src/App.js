@@ -74,7 +74,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
-      <nav className="fixed top-0 left-0 w-full z-20 bg-white shadow flex items-center justify-between px-6 py-4">
+      <nav className="fixed top-0 left-0 w-full z-[100] bg-white/80 backdrop-blur-md shadow flex items-center justify-between px-6 py-4">
         <a href="#home" className="font-extrabold text-3xl tracking-tight group relative transition-opacity duration-200 hover:opacity-80 md:ml-8">
           <span className="text-indigo-600">CE.</span>
           <span className="text-black">dev</span>
