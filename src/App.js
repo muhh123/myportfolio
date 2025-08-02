@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaLinkedin, FaFacebook, FaGithub, FaUser, FaGraduationCap, FaBriefcase, FaCode, FaEnvelope, FaPhone, FaMapMarkerAlt, FaArrowUp } from 'react-icons/fa';
-import { SiJavascript, SiReact, SiTypescript, SiHtml5, SiCss3, SiTailwindcss, SiPython, SiDjango, SiFlask, SiBootstrap, SiNodedotjs, SiFigma, SiGit, SiGithub, SiExpress, SiMongodb, SiMysql, SiCplusplus } from 'react-icons/si';
+import { FaLinkedin, FaFacebook, FaGithub, FaUser, FaGraduationCap, FaBriefcase, FaCode, FaEnvelope, FaPhone, FaMapMarkerAlt, FaArrowUp, FaMicrosoft } from 'react-icons/fa';
+import { SiJavascript, SiReact, SiTypescript, SiHtml5, SiCss3, SiTailwindcss, SiPython, SiDjango, SiFlask, SiBootstrap, SiNodedotjs, SiFigma, SiGit, SiGithub, SiExpress, SiMongodb, SiMysql, SiPhp, SiDotnet } from 'react-icons/si';
 import emailjs from '@emailjs/browser';
 
 function App() {
@@ -281,7 +281,7 @@ function App() {
             {/* easCE Reviewer App Project Card */}
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full hover:shadow-2xl transition-all duration-300 hover:scale-105">
               <h3 className="text-xl font-semibold mb-3 text-black">easCE Reviewer App</h3>
-              <p className="text-gray-700 mb-4">A reviewer app for Civil Engineering students and graduates who want to prepare for the board exam. Built with the MERN stack, Tailwind CSS, and Next.js for a modern, interactive experience.</p>
+              <p className="text-gray-700 mb-4">A reviewer app for Civil Engineering students and graduates who want to prepare for the board exam. Built with the MERN stack, TypeScript, Supabase, Tailwind CSS, and Next.js for a modern, interactive experience.</p>
               {/* What I Learned Section */}
               <div className="mb-4">
                 <h4 className="text-sm font-semibold text-indigo-600 mb-2 uppercase tracking-wide">What I Learned</h4>
@@ -295,6 +295,8 @@ function App() {
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">MERN</span>
                 <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Next.js</span>
+                <span className="px-3 py-1 bg-blue-600 text-white rounded-full text-sm font-medium">TypeScript</span>
+                <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">Supabase</span>
                 <span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">Tailwind CSS</span>
               </div>
               <div className="flex gap-4 justify-center mt-6">
@@ -392,7 +394,8 @@ function App() {
             <SiExpress className="text-5xl text-gray-800" />
             <SiMongodb className="text-5xl text-green-600" />
             <SiMysql className="text-5xl text-blue-600" />
-            <SiCplusplus className="text-5xl text-blue-600" />
+            <SiPhp className="text-5xl text-purple-600" />
+            <SiDotnet className="text-5xl text-purple-700" title="C#" />
           </div>
         </div>
       </section>
