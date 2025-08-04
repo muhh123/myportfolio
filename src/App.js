@@ -273,7 +273,8 @@ function App() {
         {/* Radial glow background */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-blue-200 opacity-15 rounded-full blur-3xl z-0 pointer-events-none"></div>
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <h2 className="text-4xl font-bold mb-12 text-black text-center uppercase">Projects</h2>
+          <h2 className="text-4xl font-bold mb-4 text-black text-center uppercase">Projects</h2>
+          <p className="text-lg text-gray-700 mb-12 text-center max-w-2xl mx-auto">These projects represent my learning journey and are continuously being improved:</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* easCE Reviewer App Project Card */}
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between h-full hover:shadow-2xl transition-all duration-300 hover:scale-105">
