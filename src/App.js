@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaLinkedin, FaFacebook, FaGithub, FaUser, FaGraduationCap, FaBriefcase, FaCode, FaEnvelope, FaPhone, FaMapMarkerAlt, FaArrowUp, FaMicrosoft } from 'react-icons/fa';
+import { FaLinkedin, FaFacebook, FaGithub, FaUser, FaGraduationCap, FaBriefcase, FaCode, FaEnvelope, FaPhone, FaMapMarkerAlt, FaArrowUp } from 'react-icons/fa';
 import { SiJavascript, SiReact, SiTypescript, SiHtml5, SiCss3, SiTailwindcss, SiPython, SiDjango, SiFlask, SiBootstrap, SiNodedotjs, SiFigma, SiGit, SiGithub, SiExpress, SiMongodb, SiMysql, SiPhp, SiDotnet } from 'react-icons/si';
 import emailjs from '@emailjs/browser';
 
@@ -8,7 +8,6 @@ function App() {
 
   const handleSendEmail = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setSubmitStatus('');
 
     const form = e.target;
@@ -28,14 +27,12 @@ function App() {
           console.error('EmailJS error:', error);
           setSubmitStatus('There was an error sending your message. Please try again later.');
         }
-      )
-      .finally(() => setIsSubmitting(false));
+      );
   };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [aboutTab, setAboutTab] = useState('about');
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
 
   // EmailJS Configuration - Loaded from environment variables
@@ -228,7 +225,7 @@ function App() {
               <p className="text-gray-700 mb-2">
                 Hi, I'm Morsid. I'm a passionate creative with a love for drawing, gaming, and exploring the endless possibilities of technology. I’ve always been curious and driven, whether it’s through art, diving into new games, or getting lost in a good book.<br /><br />
                 I originally studied Civil Engineering because it was expected of me, but I’ve come to realize that my real passion is in creativity and tech. Now, I’m focused on what truly excites me: art, design, and building things in the digital world.<br /><br />
-                You can check out some of my artwork here: <a href="#" className="text-indigo-600 underline">[Insert your art link]</a><br /><br />
+                You can check out some of my artwork here: <a href="https://www.artstation.com/artwork/DL8qo9" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800 underline transition-colors duration-200">View my ArtStation</a><br /><br />
                 I'm just getting started, and there’s so much more I want to create.
               </p>
             </div>
@@ -300,8 +297,8 @@ function App() {
                 <span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">Tailwind CSS</span>
               </div>
               <div className="flex gap-4 justify-center mt-6">
-                <a href="#" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">GitHub</a>
-                <a href="#" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">Live Demo</a>
+                <span className="text-gray-400 font-medium">GitHub (Private)</span>
+                <a href="https://easce-app.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">Live Demo</a>
               </div>
             </div>
             {/* Portfolio Website Project Card */}
@@ -324,8 +321,8 @@ function App() {
                 <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">JavaScript</span>
               </div>
               <div className="flex gap-4 justify-center mt-6">
-                <a href="https://github.com/yourusername/portfolio" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">GitHub</a>
-                <a href="#" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">Live Demo</a>
+                <a href="https://github.com/muhh123/myportfolio" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">GitHub</a>
+                <span className="text-gray-400 font-medium">Live Demo (Current Site)</span>
               </div>
             </div>
             {/* E-Commerce Platform Project Card */}
@@ -350,8 +347,8 @@ function App() {
                 <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Next.js</span>
               </div>
               <div className="flex gap-4 justify-center mt-6">
-                <a href="https://github.com/yourusername/ecommerce" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">GitHub</a>
-                <a href="#" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">Live Demo</a>
+                <a href="https://github.com/muhh123/furniture-final" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">GitHub</a>
+                <a href="https://furniture-ecommerce.windsurf.build/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium">Live Demo</a>
               </div>
             </div>
           </div>
@@ -432,8 +429,8 @@ function App() {
                     <h4 className="text-lg font-semibold text-black">Email</h4>
                     <p className="text-gray-600">mohammadmors404@gmail.com</p>
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mohammadmors404@gmail.com"
-                    target="_blank"
-                    rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 font-medium">Send Email</a>
+                      target="_blank"
+                      rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 font-medium">Send Email</a>
                   </div>
                 </div>
               </div>
@@ -567,10 +564,10 @@ function App() {
                   <FaEnvelope className="text-lg" />
                   Send Message
                 </button>
-              {submitStatus && (
-  <div className={`mt-4 text-center font-semibold ${submitStatus.includes('successfully') ? 'text-green-600' : 'text-red-600'}`}>{submitStatus}</div>
-)}
-</form>
+                {submitStatus && (
+                  <div className={`mt-4 text-center font-semibold ${submitStatus.includes('successfully') ? 'text-green-600' : 'text-red-600'}`}>{submitStatus}</div>
+                )}
+              </form>
             </div>
           </div>
         </div>
