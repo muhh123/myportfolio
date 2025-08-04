@@ -133,7 +133,7 @@ function App() {
             {/* Replace the following paragraph with Download CV button and social icons */}
             <div className="flex flex-col md:flex-row items-center gap-6 mb-12">
               <a
-                href="/mycv.txt"
+                href="/Mohammad_Morsid_Resume.pdf"
                 download
                 className="px-8 py-4 bg-white text-indigo-600 border-2 border-indigo-600 rounded-lg font-semibold shadow text-lg md:text-xl hover:bg-indigo-50 hover:text-indigo-700 transition-colors duration-300 mb-4 md:mb-0 md:mr-6"
               >
